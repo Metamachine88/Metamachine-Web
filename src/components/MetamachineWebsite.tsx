@@ -1,40 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Code, 
-  Monitor, 
   Gamepad2, 
-  Box, 
   Zap, 
   ArrowRight, 
-  ExternalLink,
-  Github,
   Linkedin,
   Youtube,
   ChevronDown,
   Menu,
   X,
   Play,
-  Star,
-  Users,
   Sparkles,
   Globe,
-  Database,
-  Cpu,
-  Cloud,
-  Smartphone,
-  Palette,
   Settings,
-  Layers,
   Brain,
-  Rocket,
-  Target,
-  Bot,
   ShoppingCart,
   MessageSquare,
   BarChart3,
-  Shield,
   Workflow,
-  Network
+  Network,
+  Palette
 } from 'lucide-react';
 
 const MetamachineWebsite = () => {
@@ -108,74 +93,6 @@ const MetamachineWebsite = () => {
     }
   ];
 
-  const technologies = [
-    // Frontend & UI
-    { name: "React", category: "Frontend", official: "React" },
-    { name: "Next.js", category: "Frontend", official: "Next.js" },
-    { name: "TypeScript", category: "Language", official: "TypeScript" },
-    { name: "Tailwind CSS", category: "Styling", official: "Tailwind CSS" },
-    { name: "Vue.js", category: "Frontend", official: "Vue.js" },
-    
-    // Backend & Languages
-    { name: "Node.js", category: "Backend", official: "Node.js" },
-    { name: "Python", category: "Language", official: "Python" },
-    { name: "JavaScript", category: "Language", official: "JavaScript" },
-    { name: "C++", category: "Language", official: "C++" },
-    { name: "C#", category: "Language", official: "C#" },
-    { name: "Go", category: "Language", official: "Go" },
-    
-    // Game Development
-    { name: "Unreal Engine", category: "Game Engine", official: "Unreal Engine" },
-    { name: "Unity", category: "Game Engine", official: "Unity" },
-    { name: "Godot", category: "Game Engine", official: "Godot" },
-    
-    // Cloud & Infrastructure
-    { name: "AWS", category: "Cloud", official: "Amazon Web Services" },
-    { name: "Microsoft Azure", category: "Cloud", official: "Microsoft Azure" },
-    { name: "Google Cloud", category: "Cloud", official: "Google Cloud Platform" },
-    { name: "Contabo", category: "Hosting", official: "Contabo" },
-    { name: "Docker", category: "DevOps", official: "Docker" },
-    { name: "Kubernetes", category: "DevOps", official: "Kubernetes" },
-    
-    // AI & Machine Learning
-    { name: "TensorFlow", category: "AI/ML", official: "TensorFlow" },
-    { name: "PyTorch", category: "AI/ML", official: "PyTorch" },
-    { name: "OpenAI", category: "AI/ML", official: "OpenAI" },
-    { name: "Hugging Face", category: "AI/ML", official: "Hugging Face" },
-    
-    // Databases
-    { name: "MongoDB", category: "Database", official: "MongoDB" },
-    { name: "PostgreSQL", category: "Database", official: "PostgreSQL" },
-    { name: "Redis", category: "Cache", official: "Redis" },
-    { name: "Supabase", category: "Database", official: "Supabase" },
-    
-    // E-commerce & Automation
-    { name: "Shopify", category: "E-commerce", official: "Shopify" },
-    { name: "WooCommerce", category: "E-commerce", official: "WooCommerce" },
-    { name: "N8N", category: "Automation", official: "n8n" },
-    { name: "Zapier", category: "Automation", official: "Zapier" },
-    
-    // Communication & Social
-    { name: "WhatsApp Business", category: "Communication", official: "WhatsApp Business API" },
-    { name: "Telegram", category: "Communication", official: "Telegram" },
-    { name: "Discord", category: "Communication", official: "Discord" },
-    { name: "Facebook", category: "Social", official: "Meta for Developers" },
-    { name: "Instagram", category: "Social", official: "Instagram Basic Display API" },
-    
-    // 3D & Design
-    { name: "Blender", category: "3D", official: "Blender" },
-    { name: "Autodesk Maya", category: "3D", official: "Autodesk Maya" },
-    { name: "3ds Max", category: "3D", official: "Autodesk 3ds Max" },
-    { name: "Substance Suite", category: "Texturing", official: "Adobe Substance 3D" },
-    { name: "ZBrush", category: "Sculpting", official: "ZBrush" },
-    
-    // Development Tools
-    { name: "Git", category: "Version Control", official: "Git" },
-    { name: "GitHub", category: "DevOps", official: "GitHub" },
-    { name: "GitLab", category: "DevOps", official: "GitLab" },
-    { name: "Jira", category: "Project Management", official: "Atlassian Jira" }
-  ];
-
   const capabilities = [
     {
       icon: Brain,
@@ -211,6 +128,15 @@ const MetamachineWebsite = () => {
     { name: 'Contacto', href: '#contact', icon: MessageSquare }
   ];
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.currentTarget;
+    const nextSibling = target.nextElementSibling as HTMLElement | null;
+    target.style.display = 'none';
+    if (nextSibling) {
+      nextSibling.style.display = 'flex';
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
       {/* Advanced Animated Background */}
@@ -220,14 +146,17 @@ const MetamachineWebsite = () => {
         
         {/* Animated Circuit Grid */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-            animation: 'circuitPulse 4s ease-in-out infinite'
-          }}></div>
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px',
+              animation: 'circuitPulse 4s ease-in-out infinite'
+            }}
+          ></div>
         </div>
 
         {/* Floating Binary Particles - MODIFICADO para incluir colores verdes */}
@@ -261,21 +190,27 @@ const MetamachineWebsite = () => {
 
         {/* Scanning Lines */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
-               style={{animation: 'scanLineVertical 8s linear infinite'}}></div>
-          <div className="absolute w-px h-full bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"
-               style={{animation: 'scanLineHorizontal 10s linear infinite'}}></div>
+          <div 
+            className="absolute w-full h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
+            style={{animation: 'scanLineVertical 8s linear infinite'}}
+          ></div>
+          <div 
+            className="absolute w-px h-full bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"
+            style={{animation: 'scanLineHorizontal 10s linear infinite'}}
+          ></div>
         </div>
 
         {/* Data Stream */}
         <div className="absolute right-10 top-0 h-full w-px overflow-hidden">
-          <div className="absolute w-full h-32 bg-gradient-to-b from-cyan-400/30 to-transparent"
-               style={{animation: 'dataStream 3s linear infinite'}}></div>
+          <div 
+            className="absolute w-full h-32 bg-gradient-to-b from-cyan-400/30 to-transparent"
+            style={{animation: 'dataStream 3s linear infinite'}}
+          ></div>
         </div>
       </div>
 
       {/* CSS Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes circuitPulse {
           0%, 100% { opacity: 0.1; }
           50% { opacity: 0.3; }
@@ -370,10 +305,7 @@ const MetamachineWebsite = () => {
                     style={{
                       filter: 'drop-shadow(0 0 8px rgba(6, 182, 212, 0.3))'
                     }}
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.nextElementSibling.style.display = 'flex';
-                    }}
+                    onError={handleImageError}
                   />
                   {/* Fallback logo simple */}
                   <div 
@@ -619,10 +551,14 @@ const MetamachineWebsite = () => {
 
                 {/* Scanning Line with Green Neon Effect */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent"
-                       style={{animation: 'scanCode 4s linear infinite'}}></div>
-                  <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-green-400/80 to-transparent"
-                       style={{animation: 'scanCode 6s linear infinite 2s'}}></div>
+                  <div 
+                    className="absolute w-full h-px bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent"
+                    style={{animation: 'scanCode 4s linear infinite'}}
+                  ></div>
+                  <div 
+                    className="absolute w-full h-px bg-gradient-to-r from-transparent via-green-400/80 to-transparent"
+                    style={{animation: 'scanCode 6s linear infinite 2s'}}
+                  ></div>
                 </div>
                 
                 {/* Editor Header */}
@@ -726,21 +662,10 @@ const MetamachineWebsite = () => {
                       <div className="text-cyan-400">];</div>
                     </div>
 
-                    {/* Marketing & Social */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// Marketing & Social APIs</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">marketing</span> = &#123;</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-gray-300">social: [<span className="text-green-300">'Meta (Facebook/Instagram)'</span>, <span className="text-green-300">'Google Ads'</span>],</div>
-                        <div className="text-gray-300">analytics: [<span className="text-green-300">'Google Analytics'</span>, <span className="text-green-300">'Meta Pixel'</span>]</div>
-                      </div>
-                      <div className="text-cyan-400">&#125;;</div>
-                    </div>
-
                     {/* Export Statement */}
                     <div className="pt-4 border-t border-gray-700/30 mb-6">
                       <div className="text-purple-400">export default</div>
-                      <div className="text-cyan-400 ml-2">&#123; frontend, backend, gameEngines, cloud, ecommerce, design3D, marketing &#125;;</div>
+                      <div className="text-cyan-400 ml-2">&#123; frontend, backend, gameEngines, cloud, ecommerce, design3D &#125;;</div>
                     </div>
 
                     {/* Duplicate content for seamless loop */}
@@ -889,10 +814,7 @@ const MetamachineWebsite = () => {
                       style={{
                         filter: 'drop-shadow(0 0 8px rgba(6, 182, 212, 0.3))'
                       }}
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling.style.display = 'flex';
-                      }}
+                      onError={handleImageError}
                     />
                     {/* Fallback logo mejorado */}
                     <div 
