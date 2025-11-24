@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Code,
   Zap,
@@ -162,6 +162,7 @@ const MetamachineWebsite = () => {
           ></div>
         </div>
 
+        {/* Orbes en escala de grises */}
         <div className="absolute top-20 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-gray-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gray-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
@@ -631,7 +632,9 @@ const MetamachineWebsite = () => {
                     </div>
 
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-gray-100 transition-colors">{capability.title}</h3>
+                      <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-gray-100 transition-colors">
+                        {capability.title}
+                      </h3>
 
                       <p className="text-gray-300 mb-4 leading-relaxed">{capability.description}</p>
 
@@ -656,7 +659,9 @@ const MetamachineWebsite = () => {
         <section className="py-20 bg-gradient-to-br from-gray-950 to-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Automatizamos lo que tu operación necesita</span>
+              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                Automatizamos lo que tu operación necesita
+              </span>
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
               Diseñamos software, analítica y flujos automatizados que conectan datos, equipos y canales. Desde ecommerce hasta servicios públicos, somos capaces de implementar cualquier solución.
@@ -778,7 +783,9 @@ const MetamachineWebsite = () => {
             </div>
 
             <div className="border-t border-gray-900 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-500 text-sm mb-4 md:mb-0">© 2024 Metamachine. Software y automatización para cualquier industria.</p>
+              <p className="text-gray-500 text-sm mb-4 md:mb-0">
+                © 2024 Metamachine. Software y automatización para cualquier industria.
+              </p>
               <div className="flex items-center space-x-4 text-sm text-gray-500">
                 <span className="flex items-center">
                   <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
