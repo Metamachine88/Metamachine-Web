@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { 
-  Code, 
-  Gamepad2, 
-  Zap, 
-  ArrowRight, 
+  Code,
+  Zap,
+  ArrowRight,
   Linkedin,
   Youtube,
   ChevronDown,
@@ -14,7 +13,6 @@ import {
   Globe,
   Settings,
   Brain,
-  ShoppingCart,
   MessageSquare,
   BarChart3,
   Workflow,
@@ -57,66 +55,66 @@ const MetamachineWebsite = () => {
   const services = [
     {
       icon: Brain,
-      title: "Inteligencia Artificial",
-      description: "Desarrollamos soluciones de IA de vanguardia que revolucionan industrias. Desde automatización inteligente hasta análisis predictivo avanzado.",
-      features: ["Machine Learning avanzado", "Procesamiento de lenguaje natural", "Automatización inteligente"]
+      title: "IA y Automatización Integral",
+      description: "Creamos agentes, flujos y modelos que automatizan operaciones críticas y mejoran la toma de decisiones en tiempo real.",
+      features: ["Automatización con IA", "Modelos predictivos", "Agentes autónomos"]
     },
     {
       icon: Code,
-      title: "Desarrollo de Software",
-      description: "Arquitectura de software de primer nivel utilizando las tecnologías más avanzadas. Soluciones escalables y de alto rendimiento.",
-      features: ["Arquitectura cloud-native", "APIs robustas", "Microservicios avanzados"]
+      title: "Software a Medida Multiplataforma",
+      description: "Arquitecturas cloud-native, APIs robustas y aplicaciones que conectan personas, máquinas y datos en cualquier industria.",
+      features: ["Arquitectura escalable", "Integraciones seguras", "Microservicios y APIs"]
     },
     {
-      icon: ShoppingCart,
-      title: "Automatización E-commerce",
-      description: "Revolucionamos las operaciones de e-commerce con IA conversacional, automatización de ventas y análisis predictivo de clientes.",
-      features: ["Agentes IA 24/7", "Integración omnicanal", "Analytics predictivos"]
+      icon: BarChart3,
+      title: "Datos y Analítica Predictiva",
+      description: "Diseñamos pipelines de datos, tableros ejecutivos y modelos que convierten información en decisiones accionables.",
+      features: ["ETL/ELT moderno", "Dashboards ejecutivos", "Forecasting avanzado"]
     },
     {
-      icon: Gamepad2,
-      title: "Desarrollo de Videojuegos",
-      description: "Experiencias interactivas de última generación con tecnologías emergentes. Desde indie games hasta AAA productions.",
-      features: ["Mecánicas innovadoras", "Gráficos de vanguardia", "Multiplayer avanzado"]
+      icon: Zap,
+      title: "Visión Computacional e IoT",
+      description: "Monitoreamos operaciones físicas con cámaras, sensores y algoritmos de visión para detectar eventos en vivo y automatizar respuestas.",
+      features: ["Detección en tiempo real", "Alertas inteligentes", "Integración con hardware"]
     },
     {
       icon: Globe,
-      title: "Mundos Virtuales UE5",
-      description: "Creación de entornos fotorrealistas y experiencias inmersivas utilizando Unreal Engine 5 y tecnologías de realidad extendida.",
-      features: ["Renderizado fotorrealista", "Física en tiempo real", "VR/AR Integration"]
+      title: "Experiencias Digitales",
+      description: "Productos digitales con interfaces inmersivas y consistencia omnicanal para clientes y equipos distribuidos.",
+      features: ["UX centrada en datos", "Canales integrados", "Escalabilidad global"]
     },
     {
       icon: Workflow,
-      title: "Automatización Empresarial",
-      description: "Transformamos procesos empresariales con automatización inteligente, optimizando eficiencia y reduciendo costos operativos.",
-      features: ["Procesos automatizados", "Integración sistemas", "Optimización continua"]
+      title: "Optimización Operativa",
+      description: "Orquestamos procesos complejos, reduciendo tiempos de ciclo y costos mediante inteligencia artificial y automatización.",
+      features: ["Procesos inteligentes", "Rutas optimizadas", "Robots y RPA"]
     }
   ];
 
   const capabilities = [
     {
       icon: Brain,
-      title: "IA Conversacional Avanzada",
-      description: "Desarrollamos agentes de IA que mantienen conversaciones naturales y contextuales, capaces de manejar consultas complejas en tiempo real.",
-      metrics: ["99.9% Disponibilidad", "< 100ms Respuesta", "Multiidioma"]
-    },
-    {
-      icon: ShoppingCart,
-      title: "E-commerce Automatizado",
-      description: "Transformamos tiendas online con automatización completa: desde consultas pre-venta hasta soporte post-venta con IA especializada.",
-      metrics: ["450% Aumento ventas", "24/7 Atención", "97% Satisfacción"]
+      title: "Automatización guiada por IA",
+      description: "Flujos inteligentes que conectan sistemas, personas y máquinas con decisiones autónomas y trazabilidad completa.",
+      metrics: ["Tiempo de ciclo -40%", "Alertas en vivo", "Alta disponibilidad"]
     },
     {
       icon: Network,
-      title: "Integración Omnicanal",
-      description: "Conectamos todos los puntos de contacto: WhatsApp, redes sociales, web, email. Un ecosistema unificado de comunicación inteligente.",
-      metrics: ["15+ Plataformas", "API Unificada", "Sync en tiempo real"]
+      title: "Monitoreo acuícola en vivo",
+      description: "Visión computacional para medir biomasa, comportamiento y salud en centros de cultivo, con alertas y reportes automáticos.",
+      metrics: ["Análisis en tiempo real", "Integración IoT", "Modelos entrenables"]
+    },
+    {
+      icon: Settings,
+      title: "Software para operaciones mineras",
+      description: "Plataformas personalizadas que se adaptan al proceso, digitalizan faenas y optimizan la seguridad y productividad.",
+      metrics: ["Workflows a medida", "Compatibilidad OT/IT", "Optimización continua"]
     },
     {
       icon: BarChart3,
-      title: "Analytics Predictivos",
-      description: "Análisis de datos en tiempo real con machine learning para predecir comportamientos, optimizar conversiones y maximizar ROI.",
-      metrics: ["Predicción 94% exacta", "Insights en vivo", "ROI Optimizado"]
+      title: "Analytics predictivos multisector",
+      description: "Modelos para demanda, mantenimiento y calidad que transforman datos dispersos en reportes ejecutivos accionables.",
+      metrics: ["Forecasting preciso", "Dashboards ejecutivos", "Insights en minutos"]
     }
   ];
 
@@ -157,29 +155,6 @@ const MetamachineWebsite = () => {
               animation: 'circuitPulse 4s ease-in-out infinite'
             }}
           ></div>
-        </div>
-
-        {/* Floating Binary Particles - MODIFICADO para incluir colores verdes */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(15)].map((_, i) => {
-            const isGreen = Math.random() > 0.5; // Alternar entre azul y verde
-            return (
-              <div
-                key={i}
-                className={`absolute font-mono text-xs select-none pointer-events-none ${
-                  isGreen ? 'text-green-400/30' : 'text-cyan-400/30'
-                }`}
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animation: `float ${3 + Math.random() * 4}s ease-in-out infinite ${Math.random() * 2}s`,
-                  transform: `rotate(${Math.random() * 360}deg)`
-                }}
-              >
-                {Math.random() > 0.5 ? '01010011' : '11000101'}
-              </div>
-            );
-          })}
         </div>
 
         {/* Energy Orbs */}
@@ -402,9 +377,10 @@ const MetamachineWebsite = () => {
             </h1>
 
             <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Somos desarrolladores de software de primer nivel especializados en <strong className="text-cyan-400">Inteligencia Artificial</strong> y 
-              tecnologías emergentes. Automatizamos operaciones de e-commerce, creamos videojuegos innovadores y 
-              construimos soluciones que definen el futuro digital.
+              Somos una empresa de desarrollo de software enfocada en <strong className="text-cyan-400">Inteligencia Artificial</strong>,
+              automatización y analítica. Construimos plataformas que conectan datos, equipos y máquinas para cualquier
+              industria: desde monitoreo acuícola en vivo con visión computacional hasta software operativo que se adapta a
+              las faenas mineras.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -463,7 +439,7 @@ const MetamachineWebsite = () => {
                 </span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Desde IA conversacional hasta mundos virtuales, desarrollamos software que revoluciona industrias
+                Desarrollamos software con IA, analítica y automatización para digitalizar operaciones en cualquier industria
               </p>
             </div>
 
@@ -830,8 +806,8 @@ const MetamachineWebsite = () => {
                   </div>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
-                  Desarrolladores de software de primer nivel especializados en IA, automatización de e-commerce 
-                  y tecnologías emergentes que definen el futuro digital.
+                  Ingeniería de software con Inteligencia Artificial, analítica y automatización para empresas que
+                  necesitan sistemas confiables, medibles y alineados con sus operaciones.
                 </p>
               </div>
               
@@ -843,23 +819,23 @@ const MetamachineWebsite = () => {
                 <ul className="space-y-3">
                   <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Inteligencia Artificial
+                    IA y Automatización Integral
                   </li>
                   <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Automatización E-commerce
+                    Software a Medida
                   </li>
                   <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Desarrollo de Software
+                    Analítica y Datos
                   </li>
                   <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Videojuegos & UE5
+                    Visión Computacional en Acuicultura
                   </li>
                   <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
                     <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Soluciones Cloud
+                    Software para Minería
                   </li>
                 </ul>
               </div>
