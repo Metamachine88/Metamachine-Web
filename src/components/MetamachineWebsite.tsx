@@ -220,9 +220,9 @@ const MetamachineWebsite = () => {
               <div className="flex items-center">
                 <div className="relative">
                   <img
-                    src="/logos/Metamachine.svg"
+                    src="/logos/metamachinecorp.png"
                     alt="Metamachine"
-                    className="w-10 h-10 object-contain"
+                    className="w-14 h-14 object-contain"
                     style={{ filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.25))' }}
                     onError={handleImageError}
                   />
@@ -317,7 +317,7 @@ const MetamachineWebsite = () => {
             </h1>
 
             <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Somos MetaMachine. Creamos software personalizado y automatizaciones inteligentes para empresas de cualquier sector. Integramos IA generativa, análisis de datos y computer vision para digitalizar procesos, conectar canales y optimizar operaciones en comercio electrónico, servicios privados y públicos.
+              Creamos software personalizado y automatizaciones inteligentes para empresas de cualquier sector. Integramos IA generativa, análisis de datos y computer vision para digitalizar procesos, conectar canales y optimizar operaciones en comercio electrónico, servicios privados y públicos.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
