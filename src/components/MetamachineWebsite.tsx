@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { 
+import React, { useState, useEffect } from 'react';
+import {
   Code,
   Zap,
   ArrowRight,
@@ -27,8 +27,7 @@ const MetamachineWebsite = () => {
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    
-    // Bloquear scroll cuando el menú está abierto
+
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
@@ -41,10 +40,9 @@ const MetamachineWebsite = () => {
       document.body.style.width = '';
       window.scrollTo(0, scrollY);
     }
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      // Limpiar estilos al desmontar
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top = '';
@@ -55,73 +53,83 @@ const MetamachineWebsite = () => {
   const services = [
     {
       icon: Brain,
-      title: "IA y Automatización Integral",
-      description: "Creamos agentes, flujos y modelos que automatizan operaciones críticas y mejoran la toma de decisiones en tiempo real.",
-      features: ["Automatización con IA", "Modelos predictivos", "Agentes autónomos"]
+      title: 'Automatización total con IA',
+      description:
+        'Orquestamos flujos end-to-end que conectan sistemas, equipos y canales. Automatizamos operaciones, atención al cliente y flujos de venta o postventa con decisiones inteligentes.',
+      features: ['RPA y agentes', 'Integraciones profundas', 'Flujos multietapa']
     },
     {
       icon: Code,
-      title: "Software a Medida Multiplataforma",
-      description: "Arquitecturas cloud-native, APIs robustas y aplicaciones que conectan personas, máquinas y datos en cualquier industria.",
-      features: ["Arquitectura escalable", "Integraciones seguras", "Microservicios y APIs"]
+      title: 'Software a medida para cualquier industria',
+      description:
+        'Diseñamos plataformas web, aplicaciones empresariales y sistemas internos que se adaptan a cada operación, con arquitectura segura y escalable.',
+      features: ['Plataformas cloud', 'APIs y microservicios', 'Sistemas internos a medida']
     },
     {
       icon: BarChart3,
-      title: "Datos y Analítica Predictiva",
-      description: "Diseñamos pipelines de datos, tableros ejecutivos y modelos que convierten información en decisiones accionables.",
-      features: ["ETL/ELT moderno", "Dashboards ejecutivos", "Forecasting avanzado"]
+      title: 'Datos, analítica y reportes ejecutivos',
+      description:
+        'Construimos pipelines, tableros y modelos que convierten datos en decisiones. Reportes automatizados y monitoreo continuo para equipos operativos y directivos.',
+      features: ['ETL/ELT moderno', 'Dashboards en tiempo real', 'Modelos predictivos']
     },
     {
       icon: Zap,
-      title: "Visión Computacional e IoT",
-      description: "Monitoreamos operaciones físicas con cámaras, sensores y algoritmos de visión para detectar eventos en vivo y automatizar respuestas.",
-      features: ["Detección en tiempo real", "Alertas inteligentes", "Integración con hardware"]
+      title: 'Automatizaciones para ecommerce',
+      description:
+        'Optimizamos tiendas online, logística y experiencia del cliente con integraciones, notificaciones inteligentes y seguimiento automatizado.',
+      features: ['Logística y órdenes', 'Notificaciones proactivas', 'Experiencia omnicanal']
     },
     {
       icon: Globe,
-      title: "Experiencias Digitales",
-      description: "Productos digitales con interfaces inmersivas y consistencia omnicanal para clientes y equipos distribuidos.",
-      features: ["UX centrada en datos", "Canales integrados", "Escalabilidad global"]
+      title: 'Software para servicios públicos y privados',
+      description:
+        'Creamos soluciones confiables para organizaciones, empresas y entidades gubernamentales. Digitalizamos procesos, control y trazabilidad.',
+      features: ['Operaciones administrativas', 'Integraciones con sistemas legados', 'Gestión y cumplimiento']
     },
     {
       icon: Workflow,
-      title: "Optimización Operativa",
-      description: "Orquestamos procesos complejos, reduciendo tiempos de ciclo y costos mediante inteligencia artificial y automatización.",
-      features: ["Procesos inteligentes", "Rutas optimizadas", "Robots y RPA"]
+      title: 'Visión computacional y control inteligente',
+      description:
+        'Aplicamos computer vision para monitoreo y análisis en entornos industriales, mejorando seguridad, calidad y eficiencia.',
+      features: ['Análisis visual en vivo', 'Alertas automáticas', 'Integración con sensores']
     }
   ];
 
   const capabilities = [
     {
       icon: Brain,
-      title: "Automatización guiada por IA",
-      description: "Flujos inteligentes que conectan sistemas, personas y máquinas con decisiones autónomas y trazabilidad completa.",
-      metrics: ["Tiempo de ciclo -40%", "Alertas en vivo", "Alta disponibilidad"]
+      title: 'Automatización guiada por IA',
+      description:
+        'Flujos inteligentes que conectan sistemas, personas y máquinas con trazabilidad completa y decisiones autónomas.',
+      metrics: ['Reducción de tiempos', 'Respuestas en vivo', 'Operación 24/7']
     },
     {
       icon: Network,
-      title: "Monitoreo acuícola en vivo",
-      description: "Visión computacional para medir biomasa, comportamiento y salud en centros de cultivo, con alertas y reportes automáticos.",
-      metrics: ["Análisis en tiempo real", "Integración IoT", "Modelos entrenables"]
+      title: 'Computer vision adaptable',
+      description:
+        'Algoritmos de visión por computador para análisis y control en distintos sectores, incluyendo monitoreo en vivo en entornos productivos.',
+      metrics: ['Análisis continuo', 'Integración con IoT', 'Modelos entrenables']
     },
     {
       icon: Settings,
-      title: "Software para operaciones mineras",
-      description: "Plataformas personalizadas que se adaptan al proceso, digitalizan faenas y optimizan la seguridad y productividad.",
-      metrics: ["Workflows a medida", "Compatibilidad OT/IT", "Optimización continua"]
+      title: 'Software operativo personalizado',
+      description:
+        'Plataformas que se ajustan a las operaciones de minería, logística, retail o servicios, digitalizando procesos y mejorando la seguridad.',
+      metrics: ['Workflows a medida', 'Compatibilidad OT/IT', 'Optimización continua']
     },
     {
       icon: BarChart3,
-      title: "Analytics predictivos multisector",
-      description: "Modelos para demanda, mantenimiento y calidad que transforman datos dispersos en reportes ejecutivos accionables.",
-      metrics: ["Forecasting preciso", "Dashboards ejecutivos", "Insights en minutos"]
+      title: 'Analítica y reportes automatizados',
+      description:
+        'Modelos predictivos, monitoreo y paneles ejecutivos que convierten datos dispersos en decisiones accionables.',
+      metrics: ['Forecasting confiable', 'KPIs en minutos', 'Insights auditables']
     }
   ];
 
-  // Menú móvil mejorado con iconos
   const mobileMenuItems = [
     { name: 'Servicios', href: '#services', icon: Zap },
     { name: 'Tecnologías', href: '#tech', icon: Code },
+    { name: 'MOAI', href: '#moai', icon: MessageSquare },
     { name: 'Capacidades', href: '#capabilities', icon: Settings },
     { name: 'Contacto', href: '#contact', icon: MessageSquare }
   ];
@@ -136,20 +144,17 @@ const MetamachineWebsite = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
-      {/* Advanced Animated Background */}
+    <div className="min-h-screen bg-black text-gray-100 overflow-hidden relative">
       <div className="fixed inset-0 z-0">
-        {/* Base gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-black"></div>
-        
-        {/* Animated Circuit Grid */}
+
         <div className="absolute inset-0 opacity-20">
-          <div 
-            className="absolute inset-0" 
+          <div
+            className="absolute inset-0"
             style={{
               backgroundImage: `
-                linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
               `,
               backgroundSize: '50px 50px',
               animation: 'circuitPulse 4s ease-in-out infinite'
@@ -157,66 +162,63 @@ const MetamachineWebsite = () => {
           ></div>
         </div>
 
-        {/* Energy Orbs */}
-        <div className="absolute top-20 left-20 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-indigo-600/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-700"></div>
+        {/* Orbes en escala de grises */}
+        <div className="absolute top-20 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gray-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gray-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-gray-300/10 rounded-full blur-3xl animate-pulse delay-700"></div>
 
-        {/* Scanning Lines */}
         <div className="absolute inset-0 overflow-hidden">
-          <div 
-            className="absolute w-full h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
-            style={{animation: 'scanLineVertical 8s linear infinite'}}
+          <div
+            className="absolute w-full h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+            style={{ animation: 'scanLineVertical 8s linear infinite' }}
           ></div>
-          <div 
-            className="absolute w-px h-full bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"
-            style={{animation: 'scanLineHorizontal 10s linear infinite'}}
+          <div
+            className="absolute w-px h-full bg-gradient-to-b from-transparent via-white/30 to-transparent"
+            style={{ animation: 'scanLineHorizontal 10s linear infinite' }}
           ></div>
         </div>
 
-        {/* Data Stream */}
         <div className="absolute right-10 top-0 h-full w-px overflow-hidden">
-          <div 
-            className="absolute w-full h-32 bg-gradient-to-b from-cyan-400/30 to-transparent"
-            style={{animation: 'dataStream 3s linear infinite'}}
+          <div
+            className="absolute w-full h-32 bg-gradient-to-b from-white/30 to-transparent"
+            style={{ animation: 'dataStream 3s linear infinite' }}
           ></div>
         </div>
       </div>
 
-      {/* CSS Animations */}
       <style>{`
         @keyframes circuitPulse {
           0%, 100% { opacity: 0.1; }
           50% { opacity: 0.3; }
         }
-        
+
         @keyframes float {
-          0%, 100% { 
-            transform: translateY(0px) rotate(0deg); 
-            opacity: 0.3; 
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.3;
           }
-          50% { 
-            transform: translateY(-20px) rotate(180deg); 
-            opacity: 0.6; 
+          50% {
+            transform: translateY(-20px) rotate(180deg);
+            opacity: 0.6;
           }
         }
-        
+
         @keyframes scanLineVertical {
           0% { top: -100%; }
           100% { top: 100%; }
         }
-        
+
         @keyframes scanLineHorizontal {
           0% { left: -100%; }
           100% { left: 100%; }
         }
-        
+
         @keyframes dataStream {
           0% { top: -128px; }
           100% { top: 100%; }
         }
-        
+
         @keyframes glitch {
           0%, 100% { transform: translateX(0); }
           20% { transform: translateX(-2px); }
@@ -224,110 +226,103 @@ const MetamachineWebsite = () => {
           60% { transform: translateX(-1px); }
           80% { transform: translateX(1px); }
         }
-        
+
         @keyframes pulseGlow {
-          0%, 100% { 
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
           }
-          50% { 
-            box-shadow: 0 0 40px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4);
+          50% {
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.25), 0 0 60px rgba(255, 255, 255, 0.15);
           }
         }
-        
+
         @keyframes blink {
           0%, 50% { opacity: 1; }
           51%, 100% { opacity: 0; }
         }
-        
+
         @keyframes autoScroll {
           0% { transform: translateY(0%); }
           100% { transform: translateY(-50%); }
         }
-        
+
         @keyframes scanCode {
           0% { top: -2px; opacity: 0; }
           10% { opacity: 1; }
           90% { opacity: 1; }
           100% { top: 100%; opacity: 0; }
         }
-        
+
         @keyframes fadeInUp {
-          0% { 
-            opacity: 0; 
-            transform: translateY(30px); 
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
           }
-          100% { 
-            opacity: 1; 
-            transform: translateY(0px); 
+          100% {
+            opacity: 1;
+            transform: translateY(0px);
           }
         }
       `}</style>
 
       <div className="relative z-10">
-        {/* Header Navigation */}
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrollY > 50 ? 'bg-black/80 backdrop-blur-xl border-b border-blue-500/20' : 'bg-transparent'
-        }`}>
+        <nav
+          className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+            scrollY > 50 ? 'bg-black/80 backdrop-blur-xl border-b border-gray-800' : 'bg-transparent'
+          }`}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                {/* Logo limpio sin fondo */}
                 <div className="relative">
-                  <img 
-                    src="/logos/Metamachine.svg" 
-                    alt="Metamachine" 
+                  <img
+                    src="/logos/Metamachine.svg"
+                    alt="Metamachine"
                     className="w-10 h-10 object-contain"
-                    style={{
-                      filter: 'drop-shadow(0 0 8px rgba(6, 182, 212, 0.3))'
-                    }}
+                    style={{ filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.25))' }}
                     onError={handleImageError}
                   />
-                  {/* Fallback logo simple */}
-                  <div 
-                    className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center" 
-                    style={{display: 'none'}}
+                  <div
+                    className="w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg flex items-center justify-center"
+                    style={{ display: 'none' }}
                   >
-                    <span className="text-white font-bold text-xl">M</span>
+                    <span className="text-black font-bold text-xl">M</span>
                   </div>
                 </div>
               </div>
 
-              {/* Desktop Menu */}
               <div className="hidden md:block">
                 <div className="flex items-center space-x-8">
-                  <a href="#services" className="text-gray-300 hover:text-cyan-400 transition-colors">Servicios</a>
-                  <a href="#tech" className="text-gray-300 hover:text-cyan-400 transition-colors">Tecnologías</a>
-                  <a href="#capabilities" className="text-gray-300 hover:text-cyan-400 transition-colors">Capacidades</a>
-                  <a href="#contact" className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 px-6 py-2 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25">
+                  <a href="#services" className="text-gray-300 hover:text-white transition-colors">Servicios</a>
+                  <a href="#tech" className="text-gray-300 hover:text-white transition-colors">Tecnologías</a>
+                  <a href="#moai" className="text-gray-300 hover:text-white transition-colors">MOAI</a>
+                  <a href="#capabilities" className="text-gray-300 hover:text-white transition-colors">Capacidades</a>
+                  <a
+                    href="#contact"
+                    className="bg-gradient-to-r from-white to-gray-300 text-black px-6 py-2 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-black/30"
+                  >
                     Contacto
                   </a>
                 </div>
               </div>
 
-              {/* Mobile Menu Button */}
               <div className="md:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-gray-300 hover:text-cyan-400 transition-colors"
-                >
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white transition-colors">
                   {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Mobile Menu - CENTRADO PERFECTO */}
           {isMenuOpen && (
-            <div className="fixed inset-0 bg-black/20 backdrop-blur-md z-40 md:hidden flex items-center justify-center">
-              {/* Botón X para cerrar */}
+            <div className="fixed inset-0 bg-black/30 backdrop-blur-md z-40 md:hidden flex items-center justify-center">
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="fixed top-6 right-6 z-50 w-12 h-12 bg-gray-800/80 backdrop-blur-sm border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-gray-700/80 transition-all"
+                className="fixed top-6 right-6 z-50 w-12 h-12 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-800 transition-all"
               >
                 <X className="w-6 h-6 text-white" />
               </button>
 
-              {/* Contenedor centrado */}
               <div className="flex flex-col items-center justify-center space-y-6 px-8 py-16">
                 {mobileMenuItems.map((item, index) => (
                   <a
@@ -337,13 +332,11 @@ const MetamachineWebsite = () => {
                     className="group relative opacity-0 animate-[fadeInUp_0.5s_ease-out_forwards]"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-600/50 rounded-2xl px-8 py-4 flex items-center space-x-4 hover:bg-gray-700/80 hover:border-cyan-500/50 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20 min-w-[240px]">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                        <item.icon className="w-6 h-6 text-cyan-400" />
+                    <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-2xl px-8 py-4 flex items-center space-x-4 hover:bg-gray-800 hover:border-gray-500 transition-all duration-300 shadow-lg shadow-black/40 min-w-[240px]">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 group-hover:from-gray-700 group-hover:to-gray-600 transition-all duration-300">
+                        <item.icon className="w-6 h-6 text-gray-100" />
                       </div>
-                      <span className="text-xl font-medium text-white group-hover:text-cyan-400 transition-colors duration-300">
-                        {item.name}
-                      </span>
+                      <span className="text-xl font-medium text-white">{item.name}</span>
                     </div>
                   </a>
                 ))}
@@ -352,109 +345,97 @@ const MetamachineWebsite = () => {
           )}
         </nav>
 
-        {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="mb-8 hidden sm:inline-flex items-center px-4 py-2 bg-gray-900/50 border border-blue-500/30 rounded-full backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-cyan-400 mr-2 animate-pulse" />
-              <span className="text-cyan-400 text-sm font-medium">Tecnologías de Punta • Innovación • Inteligencia Artificial</span>
+            <div className="mb-8 hidden sm:inline-flex items-center px-4 py-2 bg-gray-900/60 border border-gray-700 rounded-full backdrop-blur-sm">
+              <Sparkles className="w-4 h-4 text-gray-200 mr-2 animate-pulse" />
+              <span className="text-gray-200 text-sm font-medium">Software a medida • Automatización • IA aplicada</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight mt-16 sm:mt-0">
-              <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent">
-                Desarrollamos
-              </span>
+              <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">Automatizamos</span>
               <br />
-              <span 
-                className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+              <span
+                className="bg-gradient-to-r from-gray-200 to-gray-400 bg-clip-text text-transparent"
                 style={{
                   animation: 'glitch 8s ease-in-out infinite',
-                  textShadow: '0 0 30px rgba(6, 182, 212, 0.5)'
+                  textShadow: '0 0 30px rgba(255, 255, 255, 0.25)'
                 }}
               >
-                Software de Vanguardia
+                cualquier operación con software hecho a medida
               </span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Somos una empresa de desarrollo de software enfocada en <strong className="text-cyan-400">Inteligencia Artificial</strong>,
-              automatización y analítica. Construimos plataformas que conectan datos, equipos y máquinas para cualquier
-              industria: desde monitoreo acuícola en vivo con visión computacional hasta software operativo que se adapta a
-              las faenas mineras.
+              Somos MetaMachine. Creamos software personalizado y automatizaciones inteligentes para empresas de cualquier sector. Integramos IA generativa, análisis de datos y computer vision para digitalizar procesos, conectar canales y optimizar operaciones en comercio electrónico, servicios privados y públicos.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <button className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25 flex items-center">
-                Explorar Soluciones IA
+              <button className="group bg-gradient-to-r from-white to-gray-200 text-black px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg shadow-black/30 flex items-center">
+                Explorar soluciones
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group border border-blue-500/50 hover:border-blue-400 px-8 py-4 rounded-full font-semibold transition-all hover:bg-blue-500/10 backdrop-blur-sm flex items-center">
+              <button className="group border border-gray-600 hover:border-gray-400 px-8 py-4 rounded-full font-semibold transition-all hover:bg-white/10 backdrop-blur-sm flex items-center">
                 <Play className="w-5 h-5 mr-2" />
-                Ver Tecnologías
+                Ver capacidades
               </button>
             </div>
 
-            {/* Social Links */}
             <div className="flex justify-center space-x-6">
-              <a 
-                href="https://www.behance.net/metamachine_dev" 
-                target="_blank" 
+              <a
+                href="https://www.behance.net/metamachine_dev"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="group w-12 h-12 bg-gray-900/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-700 hover:border-cyan-500/50 rounded-full flex items-center justify-center transition-all backdrop-blur-sm"
+                className="group w-12 h-12 bg-gray-900/60 hover:bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center transition-all backdrop-blur-sm"
               >
-                <Palette className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                <Palette className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/metamachine/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/metamachine/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="group w-12 h-12 bg-gray-900/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-700 hover:border-cyan-500/50 rounded-full flex items-center justify-center transition-all backdrop-blur-sm"
+                className="group w-12 h-12 bg-gray-900/60 hover:bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center transition-all backdrop-blur-sm"
               >
-                <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               </a>
-              <a 
-                href="https://www.youtube.com/@metamachine_tech" 
-                target="_blank" 
+              <a
+                href="https://www.youtube.com/@metamachine_tech"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="group w-12 h-12 bg-gray-900/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-700 hover:border-cyan-500/50 rounded-full flex items-center justify-center transition-all backdrop-blur-sm"
+                className="group w-12 h-12 bg-gray-900/60 hover:bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center transition-all backdrop-blur-sm"
               >
-                <Youtube className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                <Youtube className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               </a>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ChevronDown className="w-6 h-6 text-cyan-400" />
+            <ChevronDown className="w-6 h-6 text-gray-300" />
           </div>
         </section>
 
-        {/* Services Section */}
         <section id="services" className="py-20 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Soluciones Tecnológicas
-                </span>
+                <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Soluciones en IA y software</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Desarrollamos software con IA, analítica y automatización para digitalizar operaciones en cualquier industria
+                Desarrollamos software, analítica y automatizaciones que se ajustan a cualquier industria y necesidad operativa.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
-                <div 
+                <div
                   key={index}
-                  className="group bg-gray-900/30 hover:bg-gray-800/40 border border-gray-700/50 hover:border-blue-500/50 rounded-2xl p-8 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm relative overflow-hidden"
+                  className="group bg-gray-900/40 hover:bg-gray-800/50 border border-gray-800 hover:border-gray-600 rounded-2xl p-8 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm relative overflow-hidden"
                 >
-                  {/* Particle effect on hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     {[...Array(6)].map((_, i) => (
                       <div
                         key={i}
-                        className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+                        className="absolute w-1 h-1 bg-white rounded-full"
                         style={{
                           left: `${20 + Math.random() * 60}%`,
                           top: `${20 + Math.random() * 60}%`,
@@ -463,23 +444,19 @@ const MetamachineWebsite = () => {
                       ></div>
                     ))}
                   </div>
-                  
-                  <div className="w-14 h-14 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-blue-500/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
-                    <service.icon className="w-7 h-7 text-cyan-400" />
+
+                  <div className="w-14 h-14 bg-gradient-to-br from-gray-800 to-gray-600 border border-gray-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
+                    <service.icon className="w-7 h-7 text-white" />
                   </div>
-                  
-                  <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-cyan-400 transition-colors">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
+
+                  <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-gray-100 transition-colors">{service.title}</h3>
+
+                  <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
 
                   <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center text-sm text-gray-400">
-                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
+                        <div className="w-1.5 h-1.5 bg-white rounded-full mr-3"></div>
                         {feature}
                       </div>
                     ))}
@@ -490,256 +467,182 @@ const MetamachineWebsite = () => {
           </div>
         </section>
 
-        {/* Technologies Section */}
-        <section id="tech" className="py-16 bg-gray-950/30 backdrop-blur-sm">
+        <section id="tech" className="py-16 bg-gray-950/50 backdrop-blur-sm">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Stack Tecnológico
-                </span>
+                <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Stack tecnológico</span>
               </h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                El código que impulsa nuestras soluciones
+                Arquitecturas modernas, IA generativa, APIs seguras y pipelines listos para automatizar cualquier flujo.
               </p>
             </div>
 
-            {/* Unified Code Editor */}
             <div className="max-w-5xl mx-auto">
-              <div 
-                className="bg-gray-900/80 border border-cyan-500/30 rounded-xl overflow-hidden backdrop-blur-sm shadow-2xl shadow-cyan-500/10 relative h-80"
+              <div
+                className="bg-gray-900/80 border border-gray-700 rounded-xl overflow-hidden backdrop-blur-sm shadow-2xl shadow-black/30 relative h-80"
                 style={{
                   animation: 'pulseGlow 6s ease-in-out infinite',
-                  background: 'linear-gradient(145deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8))'
+                  background: 'linear-gradient(145deg, rgba(17, 17, 17, 0.8), rgba(31, 31, 31, 0.8))'
                 }}
               >
-                {/* Holographic overlay */}
-                <div className="absolute inset-0 opacity-30 pointer-events-none">
-                  <div 
-                    className="absolute inset-0"
-                    style={{
-                      background: 'linear-gradient(45deg, transparent 48%, rgba(6, 182, 212, 0.03) 49%, rgba(6, 182, 212, 0.03) 51%, transparent 52%)',
-                      backgroundSize: '20px 20px',
-                      animation: 'float 4s ease-in-out infinite'
-                    }}
-                  ></div>
+                <div className="px-4 py-3 border-b border-gray-800 flex items-center">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                    <div className="w-3 h-3 rounded-full bg-gray-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-gray-400"></div>
+                  </div>
+                  <div className="text-sm text-gray-400 ml-3">metamachine/stack.ts</div>
                 </div>
 
-                {/* Scanning Line with Green Neon Effect */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <div 
-                    className="absolute w-full h-px bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent"
-                    style={{animation: 'scanCode 4s linear infinite'}}
-                  ></div>
-                  <div 
-                    className="absolute w-full h-px bg-gradient-to-r from-transparent via-green-400/80 to-transparent"
-                    style={{animation: 'scanCode 6s linear infinite 2s'}}
-                  ></div>
-                </div>
-                
-                {/* Editor Header */}
-                <div className="flex items-center justify-between px-4 py-3 bg-gray-800/50 border-b border-gray-700/50">
-                  <div className="flex items-center gap-3">
-                    <div className="flex gap-2">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <span className="text-gray-400 text-sm font-mono">metamachine-stack.ts</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500">TypeScript</span>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Code Content with auto-scroll */}
-                <div className="relative h-full overflow-hidden">
-                  <div 
-                    className="absolute inset-0 p-6 font-mono text-sm leading-relaxed"
-                    style={{
-                      animation: 'autoScroll 20s linear infinite',
-                      height: '200%'
-                    }}
-                  >
-                    
-                    {/* Frontend Stack */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// Frontend Technologies</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">frontend</span> = &#123;</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-gray-300">frameworks: [<span className="text-green-300">'React'</span>, <span className="text-green-300">'Next.js'</span>, <span className="text-green-300">'Vue.js'</span>],</div>
-                        <div className="text-gray-300">languages: [<span className="text-green-300">'TypeScript'</span>, <span className="text-green-300">'JavaScript'</span>],</div>
-                        <div className="text-gray-300">styling: [<span className="text-green-300">'TailwindCSS'</span>, <span className="text-green-300">'CSS3'</span>],</div>
-                        <div className="text-gray-300">tools: [<span className="text-green-300">'Vite'</span>, <span className="text-green-300">'Webpack'</span>]</div>
-                      </div>
-                      <div className="text-cyan-400">&#125;;</div>
-                    </div>
-
-                    {/* Backend Stack */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// Backend & Languages</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">backend</span> = &#123;</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-gray-300">runtime: [<span className="text-green-300">'Node.js'</span>, <span className="text-green-300">'Deno'</span>],</div>
-                        <div className="text-gray-300">languages: [<span className="text-green-300">'Python'</span>, <span className="text-green-300">'Go'</span>, <span className="text-green-300">'C++'</span>, <span className="text-green-300">'C#'</span>],</div>
-                        <div className="text-gray-300">databases: [<span className="text-green-300">'MongoDB'</span>, <span className="text-green-300">'PostgreSQL'</span>, <span className="text-green-300">'Redis'</span>]</div>
-                      </div>
-                      <div className="text-cyan-400">&#125;;</div>
-                    </div>
-
-                    {/* Game Development */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// Game Development</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">gameEngines</span> = [</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-green-300">'Unreal Engine 5',</div>
-                        <div className="text-green-300">'Unity',</div>
-                        <div className="text-green-300">'Godot'</div>
-                      </div>
-                      <div className="text-cyan-400">];</div>
-                    </div>
-
-                    {/* Cloud Infrastructure */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// Cloud & Infrastructure</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">cloud</span> = &#123;</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-gray-300">providers: [<span className="text-green-300">'AWS'</span>, <span className="text-green-300">'Azure'</span>, <span className="text-green-300">'GCP'</span>, <span className="text-green-300">'Contabo'</span>],</div>
-                        <div className="text-gray-300">containers: [<span className="text-green-300">'Docker'</span>, <span className="text-green-300">'Kubernetes'</span>],</div>
-                        <div className="text-gray-300">devops: [<span className="text-green-300">'Git'</span>, <span className="text-green-300">'GitHub'</span>, <span className="text-green-300">'GitLab'</span>]</div>
-                      </div>
-                      <div className="text-cyan-400">&#125;;</div>
-                    </div>
-
-                    {/* E-commerce & Automation */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// E-commerce & Automation</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">ecommerce</span> = &#123;</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-gray-300">platforms: [<span className="text-green-300">'Shopify'</span>, <span className="text-green-300">'WooCommerce'</span>],</div>
-                        <div className="text-gray-300">automation: [<span className="text-green-300">'N8N'</span>, <span className="text-green-300">'Zapier'</span>],</div>
-                        <div className="text-gray-300">communication: [<span className="text-green-300">'WhatsApp API'</span>, <span className="text-green-300">'Discord'</span>, <span className="text-green-300">'Telegram'</span>]</div>
-                      </div>
-                      <div className="text-cyan-400">&#125;;</div>
-                    </div>
-
-                    {/* 3D & Design */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// 3D & Design Tools</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">design3D</span> = [</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-green-300">'Blender',</div>
-                        <div className="text-green-300">'Autodesk Maya',</div>
-                        <div className="text-green-300">'3ds Max',</div>
-                        <div className="text-green-300">'Substance Suite',</div>
-                        <div className="text-green-300">'ZBrush'</div>
-                      </div>
-                      <div className="text-cyan-400">];</div>
-                    </div>
-
-                    {/* Export Statement */}
-                    <div className="pt-4 border-t border-gray-700/30 mb-6">
-                      <div className="text-purple-400">export default</div>
-                      <div className="text-cyan-400 ml-2">&#123; frontend, backend, gameEngines, cloud, ecommerce, design3D &#125;;</div>
-                    </div>
-
-                    {/* Duplicate content for seamless loop */}
-                    <div className="mb-6">
-                      <div className="text-purple-400 mb-2">// Frontend Technologies</div>
-                      <div className="text-cyan-400">const <span className="text-yellow-300">frontend</span> = &#123;</div>
-                      <div className="ml-4 space-y-1">
-                        <div className="text-gray-300">frameworks: [<span className="text-green-300">'React'</span>, <span className="text-green-300">'Next.js'</span>, <span className="text-green-300">'Vue.js'</span>],</div>
-                        <div className="text-gray-300">languages: [<span className="text-green-300">'TypeScript'</span>, <span className="text-green-300">'JavaScript'</span>],</div>
-                        <div className="text-gray-300">styling: [<span className="text-green-300">'TailwindCSS'</span>, <span className="text-green-300">'CSS3'</span>],</div>
-                        <div className="text-gray-300">tools: [<span className="text-green-300">'Vite'</span>, <span className="text-green-300">'Webpack'</span>]</div>
-                      </div>
-                      <div className="text-cyan-400">&#125;;</div>
-                    </div>
-
+                <div className="p-6 font-mono text-sm text-gray-200 h-[calc(100%-48px)] overflow-hidden relative">
+                  <div className="absolute left-0 top-0 bottom-0 w-12 bg-gray-900/90 border-r border-gray-800 text-right pr-2 pt-2 text-gray-600">
+                    {[...Array(14)].map((_, i) => (
+                      <div key={i} className="leading-6">{i + 1}</div>
+                    ))}
                   </div>
 
-                  {/* Gradient fade effect at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-900/80 to-transparent pointer-events-none"></div>
-                </div>
+                  <div className="ml-14 h-full overflow-hidden relative">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      <div
+                        className="absolute left-0 right-0 h-8 bg-gradient-to-b from-gray-900 via-transparent to-transparent"
+                        style={{ animation: 'scanCode 6s ease-in-out infinite' }}
+                      ></div>
+                    </div>
 
-                {/* Footer Status */}
-                <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-gray-800/90 border-t border-gray-700/50 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-4">
-                    <span className="text-green-400">✓ Compiled successfully</span>
-                    <span className="text-gray-500">Lines: 42</span>
-                    <span className="text-gray-500">Stack: Production Ready</span>
-                  </div>
-                  <div className="text-gray-500">
-                    Metamachine Stack v2024
+                    <div className="space-y-2 animate-[autoScroll_14s_linear_infinite]">
+                      <div className="text-gray-400">// Sistemas a medida + automatización</div>
+                      <div>
+                        <span className="text-gray-500">const</span> stack = {'{'}
+                      </div>
+                      <div className="pl-4 text-gray-200">frontend: ['Next.js', 'React', 'Tailwind'],</div>
+                      <div className="pl-4 text-gray-200">backend: ['Node.js', 'Python', 'Go', 'Rust'],</div>
+                      <div className="pl-4 text-gray-200">ia: ['LLMs', 'Vision', 'RPA', 'GenAI'],</div>
+                      <div className="pl-4 text-gray-200">data: ['Pipelines', 'Dashboards', 'Forecasting'],</div>
+                      <div className="pl-4 text-gray-200">ops: ['CI/CD', 'Observability', 'Infra as Code'],</div>
+                      <div className="pl-4 text-gray-200">automation: ['Ecommerce', 'Soporte', 'Operaciones'],</div>
+                      <div className="pl-4 text-gray-200">integrations: ['APIs', 'ERP/CRM', 'Mensajería'],</div>
+                      <div className="pl-4 text-gray-200">vision: ['Monitoreo en vivo', 'Calidad', 'Seguridad'],</div>
+                      <div className="pl-4 text-gray-200">security: ['SSO', 'Auditoría', 'Compliance'],</div>
+                      <div>{'}'};</div>
+                      <div className="text-gray-400">// Software y automatizaciones capaces de cubrir cualquier industria</div>
+                    </div>
                   </div>
                 </div>
+              </div>
 
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div className="text-center p-4 bg-gray-900/40 border border-gray-800 rounded-lg backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-white">25+</div>
+                  <div className="text-sm text-gray-400">Tecnologías</div>
+                </div>
+                <div className="text-center p-4 bg-gray-900/40 border border-gray-800 rounded-lg backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-white">8</div>
+                  <div className="text-sm text-gray-400">Lenguajes</div>
+                </div>
+                <div className="text-center p-4 bg-gray-900/40 border border-gray-800 rounded-lg backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-white">99%</div>
+                  <div className="text-sm text-gray-400">Disponibilidad</div>
+                </div>
+                <div className="text-center p-4 bg-gray-900/40 border border-gray-800 rounded-lg backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-white">Multi-sector</div>
+                  <div className="text-sm text-gray-400">Privado y público</div>
+                </div>
               </div>
             </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-4xl mx-auto">
-              <div className="text-center p-4 bg-gray-900/30 border border-gray-700/50 rounded-lg backdrop-blur-sm">
-                <div className="text-2xl font-bold text-cyan-400">25+</div>
-                <div className="text-sm text-gray-400">Tecnologías</div>
-              </div>
-              <div className="text-center p-4 bg-gray-900/30 border border-gray-700/50 rounded-lg backdrop-blur-sm">
-                <div className="text-2xl font-bold text-blue-400">8</div>
-                <div className="text-sm text-gray-400">Lenguajes</div>
-              </div>
-              <div className="text-center p-4 bg-gray-900/30 border border-gray-700/50 rounded-lg backdrop-blur-sm">
-                <div className="text-2xl font-bold text-purple-400">3</div>
-                <div className="text-sm text-gray-400">Game Engines</div>
-              </div>
-              <div className="text-center p-4 bg-gray-900/30 border border-gray-700/50 rounded-lg backdrop-blur-sm">
-                <div className="text-2xl font-bold text-emerald-400">99%</div>
-                <div className="text-sm text-gray-400">Uptime</div>
-              </div>
-            </div>
-
           </div>
         </section>
 
-        {/* Capabilities Section */}
+        <section id="moai" className="py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">MOAI</span>
+              </h2>
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                MOAI es nuestra plataforma propia de automatización conversacional y gestión inteligente de clientes. Automatiza conversaciones, soporte, prospección y generación de leads a través de WhatsApp, Instagram, Facebook Messenger y otros canales, integrándose con catálogos, bases de datos y workflows para aumentar ventas y reducir carga operativa.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed mb-8">
+                Funciona como un asistente multicanal personalizable que conecta con los sistemas internos de cada empresa y optimiza el flujo de atención en todo tipo de industrias.
+              </p>
+              <a
+                href="https://moaiverse.cloud"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-gradient-to-r from-white to-gray-200 text-black px-6 py-3 rounded-full font-semibold shadow-lg shadow-black/30 hover:scale-105 transition-transform"
+              >
+                Conocer MOAI
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
+            </div>
+
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 backdrop-blur-sm shadow-xl shadow-black/40">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-800 to-gray-600 border border-gray-500 flex items-center justify-center mr-4">
+                  <MessageSquare className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold text-white">Automatización conversacional</h3>
+                  <p className="text-sm text-gray-400">Mensajería multiplataforma + generación de leads</p>
+                </div>
+              </div>
+
+              <div className="space-y-4 text-gray-200">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                  <p>Flujos de ventas, soporte y postventa automatizados con IA generativa.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                  <p>Integración con catálogos, CRMs y sistemas internos para respuestas en tiempo real.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                  <p>Orquestación multicanal en WhatsApp, Instagram, Facebook Messenger y más.</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2"></div>
+                  <p>Reportes automáticos y KPIs para equipos comerciales y de atención.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="capabilities" className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Capacidades de Automatización
-                </span>
+                <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Capacidades clave</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Transformamos operaciones de e-commerce con tecnología de vanguardia
+                Automatizamos cualquier proceso y desarrollamos software que se adapta a la operación de cada cliente, sin importar la industria.
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {capabilities.map((capability, index) => (
-                <div 
+                <div
                   key={index}
-                  className="group bg-gray-900/30 hover:bg-gray-800/40 border border-gray-700/50 hover:border-blue-500/50 rounded-2xl p-8 transition-all duration-300 backdrop-blur-sm"
+                  className="group bg-gray-900/40 hover:bg-gray-800/50 border border-gray-800 hover:border-gray-600 rounded-2xl p-8 transition-all duration-300 backdrop-blur-sm"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-blue-500/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <capability.icon className="w-6 h-6 text-cyan-400" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-800 to-gray-600 border border-gray-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <capability.icon className="w-6 h-6 text-white" />
                     </div>
-                    
+
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-gray-100 transition-colors">
                         {capability.title}
                       </h3>
-                      
-                      <p className="text-gray-300 mb-4 leading-relaxed">
-                        {capability.description}
-                      </p>
+
+                      <p className="text-gray-300 mb-4 leading-relaxed">{capability.description}</p>
 
                       <div className="flex flex-wrap gap-2">
                         {capability.metrics.map((metric, idx) => (
-                          <span 
+                          <span
                             key={idx}
-                            className="px-3 py-1 bg-gray-800/50 border border-gray-600/50 rounded-full text-xs text-gray-300 group-hover:border-blue-500/50 transition-colors"
+                            className="px-3 py-1 bg-gray-800/60 border border-gray-700 rounded-full text-xs text-gray-300"
                           >
                             {metric}
                           </span>
@@ -753,150 +656,143 @@ const MetamachineWebsite = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-gray-950 to-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                ¿Listo para la Transformación Digital?
+              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                Automatizamos lo que tu operación necesita
               </span>
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              Únete a las empresas que ya aprovechan nuestras soluciones de IA y automatización de vanguardia
+              Diseñamos software, analítica y flujos automatizados que conectan datos, equipos y canales. Desde ecommerce hasta servicios públicos, somos capaces de implementar cualquier solución.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25">
-                Iniciar Automatización
+              <button className="bg-gradient-to-r from-white to-gray-200 text-black px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg shadow-black/30">
+                Iniciar automatización
               </button>
-              <button className="border border-blue-500/50 hover:border-blue-400 hover:bg-blue-500/10 px-8 py-4 rounded-full font-semibold transition-all backdrop-blur-sm">
-                Consulta Estratégica
+              <button className="border border-gray-600 hover:border-gray-400 hover:bg-white/10 px-8 py-4 rounded-full font-semibold transition-all backdrop-blur-sm">
+                Consulta estratégica
               </button>
             </div>
           </div>
         </section>
 
-        {/* Footer */}
-        <footer id="contact" className="py-16 border-t border-gray-800 bg-gray-950/50">
+        <footer id="contact" className="py-16 border-t border-gray-900 bg-gray-950/60">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="relative">
-                    <img 
-                      src="/logos/Metamachine.svg" 
-                      alt="Metamachine" 
+                    <img
+                      src="/logos/Metamachine.svg"
+                      alt="Metamachine"
                       className="w-10 h-10 object-contain"
-                      style={{
-                        filter: 'drop-shadow(0 0 8px rgba(6, 182, 212, 0.3))'
-                      }}
+                      style={{ filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.25))' }}
                       onError={handleImageError}
                     />
-                    {/* Fallback logo mejorado */}
-                    <div 
-                      className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/25" 
-                      style={{display: 'none'}}
+                    <div
+                      className="w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg flex items-center justify-center shadow-lg shadow-black/30"
+                      style={{ display: 'none' }}
                     >
-                      <span className="text-white font-bold text-xl">M</span>
+                      <span className="text-black font-bold text-xl">M</span>
                     </div>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">Metamachine</h3>
-                    <p className="text-xs text-cyan-400">Tech Solutions</p>
+                    <p className="text-xs text-gray-300">Software + Automatización</p>
                   </div>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
-                  Ingeniería de software con Inteligencia Artificial, analítica y automatización para empresas que
-                  necesitan sistemas confiables, medibles y alineados con sus operaciones.
+                  Ingeniería de software con inteligencia artificial, analítica y automatización para empresas que necesitan sistemas confiables, medibles y alineados con sus operaciones.
                 </p>
               </div>
-              
+
               <div>
                 <h4 className="text-lg font-semibold mb-6 text-white flex items-center">
-                  <Zap className="w-5 h-5 text-cyan-400 mr-2" />
+                  <Zap className="w-5 h-5 text-white mr-2" />
                   Especialidades
                 </h4>
                 <ul className="space-y-3">
-                  <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
-                    <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    IA y Automatización Integral
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-1.5 h-1.5 bg-white rounded-full mr-3"></div>
+                    Automatización con IA
                   </li>
-                  <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
-                    <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Software a Medida
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-1.5 h-1.5 bg-white rounded-full mr-3"></div>
+                    Software a medida
                   </li>
-                  <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
-                    <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Analítica y Datos
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-1.5 h-1.5 bg-white rounded-full mr-3"></div>
+                    Analítica y datos
                   </li>
-                  <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
-                    <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Visión Computacional en Acuicultura
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-1.5 h-1.5 bg-white rounded-full mr-3"></div>
+                    Computer vision aplicada
                   </li>
-                  <li className="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
-                    <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                    Software para Minería
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-1.5 h-1.5 bg-white rounded-full mr-3"></div>
+                    Automatizaciones para ecommerce y servicios
                   </li>
                 </ul>
               </div>
-              
+
               <div>
                 <h4 className="text-lg font-semibold mb-6 text-white flex items-center">
-                  <Globe className="w-5 h-5 text-cyan-400 mr-2" />
+                  <Globe className="w-5 h-5 text-white mr-2" />
                   Conecta
                 </h4>
                 <div className="space-y-4">
                   <div className="flex space-x-3">
-                    <a 
-                      href="https://www.behance.net/metamachine_dev" 
-                      target="_blank" 
+                    <a
+                      href="https://www.behance.net/metamachine_dev"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="group w-12 h-12 bg-gray-800/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-700/50 hover:border-cyan-500/50 rounded-xl flex items-center justify-center transition-all backdrop-blur-sm"
+                      className="group w-12 h-12 bg-gray-900/60 hover:bg-gray-800 border border-gray-800 rounded-xl flex items-center justify-center transition-all backdrop-blur-sm"
                     >
-                      <Palette className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                      <Palette className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
                     </a>
-                    <a 
-                      href="https://www.linkedin.com/in/metamachine/" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/metamachine/"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="group w-12 h-12 bg-gray-800/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-700/50 hover:border-cyan-500/50 rounded-xl flex items-center justify-center transition-all backdrop-blur-sm"
+                      className="group w-12 h-12 bg-gray-900/60 hover:bg-gray-800 border border-gray-800 rounded-xl flex items-center justify-center transition-all backdrop-blur-sm"
                     >
-                      <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                      <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
                     </a>
-                    <a 
-                      href="https://www.youtube.com/@metamachine_tech" 
-                      target="_blank" 
+                    <a
+                      href="https://www.youtube.com/@metamachine_tech"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="group w-12 h-12 bg-gray-800/50 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-700/50 hover:border-cyan-500/50 rounded-xl flex items-center justify-center transition-all backdrop-blur-sm"
+                      className="group w-12 h-12 bg-gray-900/60 hover:bg-gray-800 border border-gray-800 rounded-xl flex items-center justify-center transition-all backdrop-blur-sm"
                     >
-                      <Youtube className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                      <Youtube className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
                     </a>
                   </div>
                   <p className="text-gray-400 text-sm">
-                    Síguenos para conocer las últimas innovaciones tecnológicas y proyectos destacados.
+                    Síguenos para conocer las últimas innovaciones en software, IA aplicada y automatización.
                   </p>
-                  
-                  {/* CTA Button */}
+
                   <div className="pt-4">
-                    <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25 text-white">
-                      Iniciar Proyecto
+                    <button className="w-full bg-gradient-to-r from-white to-gray-200 text-black px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg shadow-black/30">
+                      Iniciar proyecto
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div className="border-t border-gray-800/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                © 2024 Metamachine. Desarrollando el futuro con tecnología de vanguardia.
+
+            <div className="border-t border-gray-900 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-500 text-sm mb-4 md:mb-0">
+                © 2024 Metamachine. Software y automatización para cualquier industria.
               </p>
               <div className="flex items-center space-x-4 text-sm text-gray-500">
                 <span className="flex items-center">
-                  <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                  <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
                   Disponible para proyectos
                 </span>
                 <span>|</span>
-                <span>Santiago, Chile</span>
+                <span>Operamos globalmente</span>
               </div>
             </div>
           </div>
